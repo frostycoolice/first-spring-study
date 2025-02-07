@@ -27,7 +27,8 @@ class MemberServiceTest {
         this.memberRepository = memberRepository;
        }
        MemberService 클래스에서 요런식으로 코드를 다시 만들어주어서 같은 객체로 테스트할 수 있게 만드는 것이다.
-       이런건 처음에  MemoryMemberRepository 클래스에서 static이라는 명령어를 배치하지않으면 위험도가 크게 올라가기때문에 이 방법을 사용하여 테스트를 수행하는 것이 좋다.
+       이런건 처음에  MemoryMemberRepository 클래스에서 static이라는 명령어를 배치하지않으면 두 객체로 테스트해 코드의
+       위험도가 크게 올라가기때문에 한 객체를 계속 사용하며 체크하는 방식의 프로그래밍이 필요할때는 이 방법을 사용하여 테스트를 수행하는 것이 좋다.
         이것을 dependency injection (DI) 이라고한다.
      */
     public void beforeEach(){
