@@ -1,5 +1,6 @@
 package hello.hello_spring;
 
+import hello.hello_spring.aop.TimeTraceAop;
 import hello.hello_spring.repository.*;
 import hello.hello_spring.service.MemberService;
 import jakarta.persistence.EntityManager;
@@ -38,6 +39,13 @@ public class SpringConfig {
     public MemberService memberService(){
         return new MemberService(memberRepository);
     }
+
+//    @Bean //TimeTraceAop 스프링 빈에 등록하는법
+//    // 1. 직접 TimeTraceAop 클래스에 들어가서 위에 @Component하기
+//    // 2. 이렇게 @Bean으로 등록하기 <- 정형화되는 클래스들은 Component 방식이 낫지만 이러한 정형화되지않은 클래스들은 직접 @Bean등록이 낫다.
+//    public TimeTraceAop timeTraceAop(){
+//        return new TimeTraceAop();
+//    }
 
 //    @Bean
 //    public MemberRepository memberRepository() {  //전체 주석때는 이걸 스프링 데이터 JPA를 활용한 것임

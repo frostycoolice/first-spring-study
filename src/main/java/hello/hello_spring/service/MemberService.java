@@ -28,11 +28,18 @@ public class MemberService {
 
     public Long join(Member member){
         //같은 이름이 있는 중복 회원X
-        validateDuplicateMember(member);
 
-        memberRepository.save(member);
-        return member.getId();
+        long start = System.currentTimeMillis();
 
+        //try { //AOP 적용전 시간 측정로직 일일히 하나씩 try ~ finally를 다넣어야함.
+            validateDuplicateMember(member);
+            memberRepository.save(member);
+            return member.getId();
+        /*} finally { // 마찬가지
+            long finish = System.currentTimeMillis();
+            long timems = finish - start;
+            System.out.println("join = " + timems + "ms");
+        }*/
     }
 
     private void validateDuplicateMember(Member member) {

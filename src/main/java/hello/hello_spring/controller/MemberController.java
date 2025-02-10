@@ -16,7 +16,7 @@ public class MemberController {
 
     private final MemberService memberService;
 
-    @Autowired // 컨트롤러와 서비스 부분을 연결함.
+    @Autowired // 컨트롤러와 서비스 부분을 연결함. DI
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
